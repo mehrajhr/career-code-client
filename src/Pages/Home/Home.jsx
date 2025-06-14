@@ -1,9 +1,12 @@
 import React from 'react';
+import Banner from './Banner';
+import HotJobs from '../../Components/HotJobs';
 
-const Home = () => {
+const Home =() => {
     return (
         <div>
-            this is home
+            <Banner></Banner>
+            <HotJobs></HotJobs>
         </div>
     );
 };
