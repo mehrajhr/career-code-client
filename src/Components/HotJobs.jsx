@@ -1,13 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import JobCard from '../Pages/Shared/JobCard';
+import Loading from './Loading';
 
 const HotJobs = () => {
     const [jobs , setJobs] = useState([]);
+    const [loading , setLoading] = useState(false);
     useEffect(() => {
+        setLoading(true);
         fetch('http://localhost:5000/jobs')
         .then(res => res.json())
-        .then(data => setJobs(data))
+        .then(data => {
+            setJobs(data);
+            setLoading(false);
+        })
     },[])
+    if(loading){
+        return <Loading></Loading>
+    }
+    if(jobs.length === 0){
+        return <p className='text-center text-red-500 my-4 text-xl'>No data found</p>
+    }
     return (
         <div>
             <h1 className='text-4xl font-bold text-center my-10'>Hot jobs of the day!</h1>
