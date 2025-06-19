@@ -3,7 +3,7 @@ import React from "react";
 const ApplicationListRow = ({application , index}) => {
     const {company_logo , company , title, category} = application;
   return (
-    <tr>
+    <tr key={application._id}>
       <th>
         <label>
           {index + 1}

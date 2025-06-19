@@ -10,9 +10,7 @@ const ApplicationList = ({ myApplicationPromise }) => {
         <thead>
           <tr>
             <th>
-              <label>
-                #
-              </label>
+              <label>#</label>
             </th>
             <th>Company</th>
             <th>Job Title</th>
@@ -20,11 +18,14 @@ const ApplicationList = ({ myApplicationPromise }) => {
             <th></th>
           </tr>
         </thead>
-        {
-            applications?.map((application , index) => <ApplicationListRow index={index} key={application._id} application={application}></ApplicationListRow>)
-        }
         <tbody>
-         
+          {applications?.map((application, index) => (
+            <ApplicationListRow
+              index={index}
+              key={application._id}
+              application={application}
+            ></ApplicationListRow>
+          ))}
         </tbody>
       </table>
     </div>
